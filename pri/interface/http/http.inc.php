@@ -49,7 +49,7 @@ class http_inc extends pri_interface{
 		$header = array(
 			'Host'=>$host.$port,
 			);
-		return $this->getResult($url,$header,$data);
+		return $this->getResult($url,$header,$args);
 	}
 
 	function addGet($uri){
