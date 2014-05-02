@@ -12,6 +12,6 @@ class test_mod{
 		$this->kas->show();
 		$t = new test();
 		$t->getLibs();
-		return array($f,$m);
+		return $f;
 	}
 }
