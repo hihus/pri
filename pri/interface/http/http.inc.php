@@ -72,8 +72,7 @@ class http_inc extends pri_interface{
 		$rs = $this->getCurlResult($url,$header,$data);
 		$status = curl_getinfo($this->_http);
 		if($status['http_code'] == '200'){
-			var_dump($rs);
-			return "asgs";//unserialize($rs);
+			return unserialize(urldecode($rs));
 		}else{
 			die('rpc staus code: '.$status['http_code']);
 		}

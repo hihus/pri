@@ -26,7 +26,7 @@ class pri_api{
 			$args = unserialize(urldecode($_POST['_pri_data']));
 		}
 		if(!is_array($args)) $args = array($args);
-		echo serialize(call_user_func_array(array(&$this->mod->mod,$this->func),$args));
+		echo urlencode(serialize(call_user_func_array(array(&$this->mod->mod,$this->func),$args)));
 		exit;
 	}
 	function aginstAttact(){
