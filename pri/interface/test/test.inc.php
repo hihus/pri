@@ -5,7 +5,7 @@ class test_inc extends pri_interface {
 		return true;
 	}
 
-	public function getName($args){
+	public function getName($f,$m){
 		return $this->_callModule();
 	}
 }

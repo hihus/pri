@@ -15,8 +15,9 @@ class http_inc extends pri_interface{
 	}
 	function init_curl(){
 		$this->_http = curl_init();
+		curl_setopt($this->_http, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($this->_http, CURLOPT_POST, 1);
-		curl_setopt ($this->_http, CURLOPT_HEADER , 1 );
+		//curl_setopt ($this->_http, CURLOPT_HEADER , 1 );
 	}
 	function getReq($mod,$func,$args){
 		$rs = NULL;
@@ -69,8 +70,12 @@ class http_inc extends pri_interface{
 	}
 	function getResult($url,$header,$data){
 		$rs = $this->getCurlResult($url,$header,$data);
-		var_dump(curl_getinfo($this->_http));
-		var_dump($rs);
+		$status = curl_getinfo($this->_http);
+		if($status['http_code'] == '200'){
+			return unserialize($rs);
+		}else{
+			die('rpc staus code: '.$status['http_code']);
+		}
 	}
 	function getCurlResult($url,$header,$data){
 		curl_setopt($this->_http, CURLOPT_URL, $url);

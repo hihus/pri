@@ -5,13 +5,13 @@ class test_mod{
 		return true;
 	}
 
-	public function getName($args){
+	public function getName($f,$m){
 		$this->show->getShow("hihu_kpi");
 		$this->pri->loadf('kas');
 		$this->pri->loadf('kas');
 		$this->kas->show();
 		$t = new test();
 		$t->getLibs();
-		return $args;
+		return array($f,$m);
 	}
 }
