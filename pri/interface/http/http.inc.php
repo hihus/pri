@@ -69,7 +69,8 @@ class http_inc extends pri_interface{
 	}
 	function getResult($url,$header,$data){
 		$rs = $this->getCurlResult($url,$header,$data);
-		echo ($rs);
+		var_dump(curl_getinfo($this->_http));
+		var_dump($rs);
 	}
 	function getCurlResult($url,$header,$data){
 		curl_setopt($this->_http, CURLOPT_URL, $url);
