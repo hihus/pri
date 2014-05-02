@@ -157,17 +157,11 @@ class pri_interface {
 	}
 	protected function useHttp(){
 		$conf = $this->getSelfConfig('user_http');
-		if($conf > 0 && !$this->second_req()){
+		if($conf > 0 && PRI_HTTP_SWITCH){
 			return true;
 		}else{
 			return false;
 		}
-	}
-	protected function second_req(){
-		if(isset($_POST[$this->mod_name.'_sec_req_pri'])){
-			return true;
-		}
-		return false;
 	}
 	//end of class
 }

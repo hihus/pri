@@ -10,6 +10,7 @@ define('PRI_COM_ROOT',PRI_ROOT.'pri/com/');
 define('PRI_INTERFACE_ROOT',PRI_ROOT.'pri/interface/');
 define('PRI_DATA_ROOT',PRI_ROOT.'pri/data/');
 define('PRI_API_INDEX','api.inc.php');
+define('PRI_HTTP_SWITCH',1);
 //加载工具类, __autoload 在cli模式不可用
 foreach( scandir(PRI_COM_ROOT) as $v){
 	if($v == '.' || $v == '..') continue;

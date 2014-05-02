@@ -6,7 +6,7 @@ class pri_api{
 		if(isset($_GET['_pri_mod']) && isset($_GET['_pri_func'])){
 			$this->pri = $pri = $GLOBALS['pri'];
 			$this->mod = $pri->load($_GET['_pri_mod']);
-			$this->mod->_lazyInit();
+			$this->mod->_lazyInit($_GET['_pri_mod']);
 			$this->func = $_GET['_pri_func'];
 		}else{
 			echo 'err load ~';
