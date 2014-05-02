@@ -7,7 +7,7 @@
 class log_inc extends pri_interface{
 
 	public function init(){
-		echo "\n init log_in \n";
+		return true;
 	}
 
 }

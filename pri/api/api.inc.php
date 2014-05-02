@@ -5,7 +5,7 @@ class pri_api{
 	function __construct(){
 		if(isset($_GET['_pri_mod']) && isset($_GET['_pri_func'])){
 			$this->pri = $pri = $GLOBALS['pri'];
-			$this->mod = $pri->mod($_GET['_pri_mod']);
+			$this->mod = $pri->load($_GET['_pri_mod']);
 			$this->mod->_lazyInit();
 			$this->func = $_GET['_pri_func'];
 		}else{
