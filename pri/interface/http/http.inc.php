@@ -69,7 +69,7 @@ class http_inc extends pri_interface{
 	}
 	function getResult($url,$header,$data){
 		$rs = $this->getCurlResult($url,$header,$data);
-		var_dump($rs);
+		echo ($rs);
 	}
 	function getCurlResult($url,$header,$data){
 		curl_setopt($this->_http, CURLOPT_URL, $url);
@@ -77,6 +77,11 @@ class http_inc extends pri_interface{
 		$_POST['_sec_req_pri'] = '1';
 		curl_setopt ($this->_http, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($this->_http, CURLOPT_POSTFIELDS, $_POST);
-		return curl_exec($this->_http);
+		$rs = curl_exec($this->_http);
+		if($rs === false){
+		    echo 'rpc error: ' . curl_error($this->_http);
+		    exit;
+		}
+		return $rs;
 	}
 }
