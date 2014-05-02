@@ -23,8 +23,6 @@ class pri_api{
 		if(get_magic_quotes_gpc()){
 			$args = unserialize(stripslashes($_POST['_pri_data']));
 		}else{
-			var_dump($_POST['_pri_data']);
-			var_dump(urldecode($_POST['_pri_data']));
 			$args = unserialize(urldecode($_POST['_pri_data']));
 		}
 		if(!is_array($args)) $args = array($args);
