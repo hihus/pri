@@ -2,9 +2,9 @@ introduction:
 	
 	this is a php http-rpc framework (do not need any c extends for php)
 
-	version 0.1
+	version: 0.1
 
-	base php version 5.0.1 or later
+	base php version: 5.0.1 or later
 
 example:
 	

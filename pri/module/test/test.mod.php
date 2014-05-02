@@ -2,7 +2,7 @@
 class test_mod{
 	public function init(){
 		$this->pri->loadf('show');
-		echo "mod for test \n";
+		return true;
 	}
 
 	public function getName($args){

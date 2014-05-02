@@ -1,10 +1,10 @@
 <?php
 include(dirname(dirname(__FILE__)).'/pri.inc.php');
-$pri = $GLOBALS['pri'];
 
 class pri_api{
 	function __construct(){
 		if(isset($_GET['_pri_mod']) && isset($_GET['_pri_func'])){
+			$this->pri = $pri = $GLOBALS['pri'];
 			$this->mod = $pri->mod($_GET['_pri_mod']);
 			$this->mod->_lazyInit();
 			$this->func = $_GET['_pri_func'];
@@ -19,7 +19,7 @@ class pri_api{
 			exit;
 		}
 		$args = unserialize($_GET['_pri_data']);
-		echo serialize(call_user_func_array(array(&$this->mod,$this->func), $args));
+		echo serialize(call_user_func_array(array(&$this->mod->mod,$this->func), array($args)));
 		exit;
 	}
 	function aginstAttact(){
@@ -30,7 +30,7 @@ class pri_api{
 	}
 	function checkSign(){
 		if(isset($_GET['_pri_sign'])){
-			$conf = $this->mod->getSelfConfig('sign');
+			$conf = $this->mod->getSelfConfig('rpc');
 			if(isset($conf['sign']) && $conf['sign'] == $_GET['_pri_sign']){
 				return true;
 			}

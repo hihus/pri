@@ -77,7 +77,6 @@ class http_inc extends pri_interface{
 		$_POST['_sec_req_pri'] = '1';
 		curl_setopt ($this->_http, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($this->_http, CURLOPT_POSTFIELDS, $_POST);
-		$rs = curl_exec($this->_http);
-		var_dump($rs);
+		return  curl_exec($this->_http);
 	}
 }

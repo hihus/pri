@@ -2,7 +2,7 @@
 
 class test_inc extends pri_interface {
 	public function init(){
-		echo "test for interface \n";
+		return true;
 	}
 
 	public function getName($args){

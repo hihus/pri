@@ -2,9 +2,9 @@
 
 class test_kas {
 	public function __construct(){
-		echo "kas \n";
+		return true;
 	}
 	public function show(){
-		echo "kas show \n";
+		return true;
 	}
 }
