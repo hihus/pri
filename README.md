@@ -11,6 +11,7 @@
 get start: 
 	
 	目录说明:
+	
 		/tests 测试文件目录
 		/tools 帮助文档，如分布式下的nginx配置文件示例
 		/pri   核心源码
@@ -22,19 +23,14 @@ get start:
 		/pri/interface 接口目录，文档和接口写在此目录，方便开发，维护。统一项目开发规范
 		/pri/module    逻辑实现目录，每个模块一个目录，目录下可以分为主模块和辅助模块
 
-
 	example:
 
 		$GLOBAL['pri'] 为框架全局变量，初始化一次
-
 		$pri = $GLOBAL['pri'];
 		$hello = $pri->load('hello');
 		$hello->sayHello();//根据配置文件内容判断是否走远程rpc
 
-	
-		可运行案例详见：test/test.php
-
-		test模块 已配置为远程调用
+		可运行案例详见：test/test.php , test模块	已配置为远程调用
 
 todo list:
 	
@@ -49,7 +45,5 @@ todo list:
 about me:
 
 	author: hihu
-
 	mail: coldsolo@gmail.com 
-
 	weibo: @hihus
