@@ -19,7 +19,7 @@ class pri_api{
 			echo 'err attact ~';
 			exit;
 		}
-		$args = unserialize($_GET['_pri_data']);
+		$args = unserialize($_POST['_pri_data']);
 		echo serialize(call_user_func_array(array(&$this->mod->mod,$this->func), array($args)));
 		exit;
 	}
