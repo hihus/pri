@@ -10,7 +10,9 @@
 
 example:
 	
-	暂时未添加 ~
+	见：test/test.php
+
+	test模块 已配置为远程调用
 
 todo list:
 	
@@ -22,7 +24,10 @@ todo list:
 	6. ajax 框架内实现
 	7. 安全防护，基于只限内网调用或者开放http安全调用
 
-author:
+about me:
 
-	hihu , coldsolo@gmail.com , @hihus ~
+	author: hihu
 
+	mail: coldsolo@gmail.com 
+
+	weibo: @hihus

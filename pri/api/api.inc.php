@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',1);
+//ini_set('display_errors',1);
 set_magic_quotes_runtime(0);
 include(dirname(dirname(__FILE__)).'/pri.inc.php');
 

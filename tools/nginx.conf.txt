@@ -3,10 +3,12 @@ server {
         server_name  127.0.0.1;
         access_log  /home/hihu/logs/pri.access.log  main;
         root   /home/hihu/www/pri/hihu/pri/api;
+
         location / {
             index index.html index.htm index.php;
         }
-	location ~ \.php$ {
+
+	    location ~ \.php$ {
             root           /home/hihu/www/pri/hihu/pri/api;
             fastcgi_pass   127.0.0.1:9000;
 	        fastcgi_index  index.php;
@@ -14,10 +16,11 @@ server {
             fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
             include        fastcgi_params;
         }
+
         error_page  404 500 502 503 504  /err.html;
         location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|tx|tar|wav|bmp|rtf|js|flv|swf)$
         {
 			access_log off;
                         expires 30d;
         }
-    }
+}
