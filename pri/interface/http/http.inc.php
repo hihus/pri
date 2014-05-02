@@ -49,7 +49,6 @@ class http_inc extends pri_interface{
 		$header = array(
 			'Host'=>$host.$port,
 			);
-		$data = serialize($args);
 		return $this->getResult($url,$header,$data);
 	}
 
