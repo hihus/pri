@@ -72,7 +72,7 @@ class http_inc extends pri_interface{
 		$rs = $this->getCurlResult($url,$header,$data);
 		$status = curl_getinfo($this->_http);
 		if($status['http_code'] == '200'){
-			return $rs;
+			return unserialize($_POST['_pri_data']);
 		}else{
 			die('rpc staus code: '.$status['http_code']);
 		}

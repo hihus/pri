@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors',1);
+set_magic_quotes_runtime(0);
 include(dirname(dirname(__FILE__)).'/pri.inc.php');
 
 class pri_api{
@@ -19,7 +20,11 @@ class pri_api{
 			echo 'err attact ~';
 			exit;
 		}
-		$args = unserialize(urldecode($_POST['_pri_data']));
+		if(get_magic_quotes_gpc()){
+			$args = unserialize(stripslashes($_POST['_pri_data']));
+		}else{
+			$args = unserialize($_POST['_pri_data']);
+		}
 		if(!is_array($args)) $args = array($args);
 		echo serialize(call_user_func_array(array(&$this->mod->mod,$this->func),$args));
 		exit;

@@ -5,7 +5,7 @@ class test_mod{
 		return true;
 	}
 
-	public function getName($f,$m){
+	public function getName($f){
 		$this->show->getShow("hihu_kpi");
 		$this->pri->loadf('kas');
 		$this->pri->loadf('kas');
