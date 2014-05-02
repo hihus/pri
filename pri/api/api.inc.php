@@ -23,10 +23,10 @@ class pri_api{
 		if(get_magic_quotes_gpc()){
 			$args = unserialize(stripslashes($_POST['_pri_data']));
 		}else{
-			$args = unserialize(urldecode($_POST['_pri_data']));
+			$args = unserialize($_POST['_pri_data']);
 		}
 		if(!is_array($args)) $args = array($args);
-		echo urlencode(serialize(call_user_func_array(array(&$this->mod->mod,$this->func),$args)));
+		echo serialize(call_user_func_array(array(&$this->mod->mod,$this->func),$args));
 		exit;
 	}
 	function aginstAttact(){
