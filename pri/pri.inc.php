@@ -11,6 +11,7 @@ class pri {
 	private $_modules = array();
 	private $_libs = array();
 	private $_server;
+	public static $_timer = array();
 
 	private function __construct(){
 		$this->getServer();
@@ -98,11 +99,15 @@ class pri {
 	protected function setDefaultConfig(){
 		return $this->getConfig('','pri');
 	}
-	
+
 	protected function setDefaultModule(){
 		$conf = $this->getConfig('default_mod');
 		foreach ($conf as $k => $v) {
 			$this->load($v);
+		}
+		//如果开启了接口调用统计，默认加载pri统计模块
+		if(defined('PRI_HTTP_STAT') && PRI_HTTP_STAT == 1){
+			$this->load('pristat');
 		}
 		return true;
 	}
@@ -140,11 +145,18 @@ class pri_interface {
 			$this->_lazyInit($this->mod_name);
 		}
 		$status = $this->useHttp();
-		if($status){
-			return $this->pri->httpQuery($this->mod_name,$func,$args);
-		}else{
-			return call_user_func_array(array(&$this->mod,$func), $args);
+		if(defined('PRI_HTTP_STAT') && PRI_HTTP_STAT == 1){
+			$this->pri->pristat->call_stat_start($this->mod_name,$func,$status);
 		}
+		if($status){
+			$rs = $this->pri->httpQuery($this->mod_name,$func,$args);
+		}else{
+			$rs = call_user_func_array(array(&$this->mod,$func), $args);
+		}
+		if(defined('PRI_HTTP_STAT') && PRI_HTTP_STAT == 1){
+			$this->pri->pristat->call_stat_end($this->mod_name,$func,$status);
+		}
+		return $rs;
 	}
 	public function _lazyInit($mod,$path = false){
 		if(!$path){

@@ -11,13 +11,13 @@ class pri_api{
 			$this->mod->_lazyInit($_GET['_pri_mod']);
 			$this->func = $_GET['_pri_func'];
 		}else{
-			echo 'err load ~';
+			echo serialize('err load ~');
 			exit;
 		}
 	}
 	function run(){
 		if($this->aginstAttact()){
-			echo 'err attact ~';
+			echo serialize('err attact ~');
 			exit;
 		}
 		$args = unserialize(urldecode($_POST['_pri_data']));
