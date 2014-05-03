@@ -5,6 +5,7 @@
 * main   : core class for the framework
 */
 class pri {
+
 	private static $_instance;
 	private $_config = array();
 	private $_modules = array();
@@ -108,6 +109,10 @@ class pri {
 		if(!$this->_server){
 			$this->_server = 'test';
 		}
+		return $this->_server;
+	}
+	public function setServer($ser){
+		$this->_server = $ser;
 		return $this->_server;
 	}
 	//rpc 调用
