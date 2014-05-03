@@ -94,9 +94,11 @@ class pri {
 		}
 		return false;
 	}
+
 	protected function setDefaultConfig(){
 		return $this->getConfig('','pri');
 	}
+	
 	protected function setDefaultModule(){
 		$conf = $this->getConfig('default_mod');
 		foreach ($conf as $k => $v) {
